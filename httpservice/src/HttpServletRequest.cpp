@@ -84,7 +84,7 @@ HttpServletRequestPrivate::HttpServletRequestPrivate(const std::shared_ptr<Servl
   // get the uri
   std::string uri = mg_get_request_info(m_Connection)->uri;
   pos = uri.find_first_of('?');
-  m_Uri = uri.substr(0, pos);
+  m_Uri = uri;
 
   // get the query string
   if (pos != std::string::npos)
