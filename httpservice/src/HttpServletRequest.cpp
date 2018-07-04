@@ -90,8 +90,9 @@ HttpServletRequestPrivate::HttpServletRequestPrivate(const std::shared_ptr<Servl
   // get the query string
   if (pos != std::string::npos)
   {
-    m_QueryString = mg_get_request_info(conn)->query_string;
+    std::cout << "------------>  Salut les nazes!!!!!!!!  <-----------------" << std::endl;
   }
+  m_QueryString = mg_get_request_info(conn)->query_string;
   std::cout << "toto: "<< mg_get_request_info(conn)->query_string <<std::endl;
   // reconstruct the url
   m_Url = m_Scheme + "://" + m_ServerName + ":" + m_ServerPort + m_Uri;
