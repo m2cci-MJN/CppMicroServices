@@ -204,7 +204,7 @@ std::string HttpServletRequest::GetServletPath() const
 
 std::string HttpServletRequest::GetQueryString() const
 {   
-  return d->m_QueryString;
+  return mg_get_request_info(d->m_Connection)->query_string;
 }
 
 std::string HttpServletRequest::GetHeader(const std::string& name) const
