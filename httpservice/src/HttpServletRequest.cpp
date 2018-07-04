@@ -88,7 +88,7 @@ HttpServletRequestPrivate::HttpServletRequestPrivate(const std::shared_ptr<Servl
   //m_Uri = uri.substr( 0 , pos );
   m_Uri = uri;
   // get the query string  
-  m_QueryString = mg_get_request_info(conn)->query_string;
+  m_QueryString = mg_get_request_info(m_Connection)->query_string;
   // reconstruct the url
   m_Url = m_Scheme + "://" + m_ServerName + ":" + m_ServerPort + m_Uri;
 }
