@@ -30,6 +30,7 @@
 #include <cassert>
 #include <ctime>
 #include <cstring>
+#include <iostream>
 
 #ifdef US_PLATFORM_WINDOWS
 #define timegm(x) (_mkgmtime(x))
@@ -91,7 +92,7 @@ HttpServletRequestPrivate::HttpServletRequestPrivate(const std::shared_ptr<Servl
   {
     m_QueryString = mg_get_request_info(m_Connection)->query_string;
   }
-
+  std::cout << "toto"<< m_Connection->request_info.query_string <<std::endl
   // reconstruct the url
   m_Url = m_Scheme + "://" + m_ServerName + ":" + m_ServerPort + m_Uri;
 }
@@ -204,7 +205,7 @@ std::string HttpServletRequest::GetServletPath() const
 
 std::string HttpServletRequest::GetQueryString() const
 {   
-  return mg_get_request_info(d->m_Connection)->query_string;
+  return d->m_QueryString;
 }
 
 std::string HttpServletRequest::GetHeader(const std::string& name) const
