@@ -88,7 +88,7 @@ HttpServletRequestPrivate::HttpServletRequestPrivate(const std::shared_ptr<Servl
   //m_Uri = uri.substr( 0 , pos );
   m_Uri = uri;
   // get the query string  
-  m_QueryString = mg_get_request_info(m_Connection)->query_string;
+  
   // reconstruct the url
   m_Url = m_Scheme + "://" + m_ServerName + ":" + m_ServerPort + m_Uri;
 }
@@ -201,7 +201,7 @@ std::string HttpServletRequest::GetServletPath() const
 
 std::string HttpServletRequest::GetQueryString() const
 {   
-  return d->m_QueryString;
+  return mg_get_request_info(d->m_Connection)->query_string;;
 }
 
 std::string HttpServletRequest::GetHeader(const std::string& name) const
