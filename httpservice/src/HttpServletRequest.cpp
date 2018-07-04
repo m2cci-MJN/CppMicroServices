@@ -189,6 +189,7 @@ std::string HttpServletRequest::GetPathInfo() const
 
 std::string HttpServletRequest::GetRequestUri() const
 {
+  std::cout << "uri cpp = " << m_Uri << "<--" << std::endl;
   return d->m_Uri;
 }
 
@@ -204,6 +205,7 @@ std::string HttpServletRequest::GetServletPath() const
 
 std::string HttpServletRequest::GetQueryString() const
 {
+  std::cout << "querystring cpp = " << m_QueryString << "<--" << std::endl;    
   return d->m_QueryString;
 }
 
