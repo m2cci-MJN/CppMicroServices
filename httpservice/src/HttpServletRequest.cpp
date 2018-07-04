@@ -84,16 +84,11 @@ HttpServletRequestPrivate::HttpServletRequestPrivate(const std::shared_ptr<Servl
 
   // get the uri
   std::string uri = mg_get_request_info(m_Connection)->uri;
-  pos = uri.find_first_of('?');
-  m_Uri = uri.substr( 0 , pos );
-
-  // get the query string
-  if (pos != std::string::npos)
-  {
-    std::cout << "------------>  Salut les nazes!!!!!!!!  <-----------------" << std::endl;
-  }
+  //pos = uri.find_first_of('?');
+  //m_Uri = uri.substr( 0 , pos );
+  m_Uri = uri;
+  // get the query string  
   m_QueryString = mg_get_request_info(conn)->query_string;
-  std::cout << "toto: "<< mg_get_request_info(conn)->query_string <<std::endl;
   // reconstruct the url
   m_Url = m_Scheme + "://" + m_ServerName + ":" + m_ServerPort + m_Uri;
 }
